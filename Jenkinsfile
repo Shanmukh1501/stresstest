@@ -21,29 +21,30 @@ pipeline {
             }
         }
 
-        stage('Push to DockerHub') {
+		stage('Push to DockerHub') {
 			steps {
 				withCredentials([usernamePassword(credentialsId: 'DockerHubCredentials', passwordVariable: 'DOCKER_PASSWORD', usernameVariable: 'DOCKER_USERNAME')]) {
 					script {
-						sh "echo $DOCKER_PASSWORD | docker login -u $DOCKER_USERNAME --password-stdin"
-						sh "docker push ${IMAGE_NAME}"
+						// Login to Docker Hub
+						bat "echo %DOCKER_PASSWORD% | docker login -u %DOCKER_USERNAME% --password-stdin"
+						// Push the image to Docker Hub
+						bat "docker push ${IMAGE_NAME}"
 					}
 				}
 			}
 		}
 
-		
         stage('Deploy with Docker Compose') {
             steps {
                 script {
                     // Stop the currently running services
-                    sh "docker-compose down"
+                    bat "docker-compose down"
 
                     // Pull the new images
-                    sh "docker-compose pull"
+                    bat "docker-compose pull"
 
                     // Start the services again with the new images
-                    sh "docker-compose up -d"
+                    bat "docker-compose up -d"
                 }
             }
         }
