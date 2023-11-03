@@ -3,13 +3,12 @@ pipeline {
 
     environment {
         DOCKER_IMAGE = 'kshanmukha1501/flask:v5'
-        DOCKER_CREDENTIALS = 'YourDockerHubCredentials' // Assuming you've set up Docker Hub credentials in Jenkins
+        DOCKER_CREDENTIALS = 'DockerHubCredentials'
     }
 
     stages {
         stage('Checkout') {
             steps {
-                // This will checkout your code from the Git repository
                 checkout scm
             }
         }
