@@ -41,7 +41,7 @@ pipeline {
                     // Stop the currently running services
                     bat "docker-compose down"
 
-                    // Pull the new images
+                    // Pull the new images from dockerhub
                     bat "docker-compose pull"
 
                     // Start the services again with the new images
