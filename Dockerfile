@@ -1,0 +1,11 @@
+# Use the specific base image
+FROM kshanmukha1501/flask:v4
+
+# Set the working directory inside the container
+WORKDIR /root/flaskapp
+
+# Copy the Flask app files from your host to your current location (WORKDIR) in the image
+COPY . .
+
+# Retain the entrypoint settings as defined earlier
+ENTRYPOINT ["/bin/bash", "/run_services.sh"]
