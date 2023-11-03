@@ -1,0 +1,36 @@
+version: '3'
+services:
+  prom:
+    image: kshanmukha1501/prom:v4
+    networks:
+      my_network:
+        ipv4_address: 172.18.0.2
+    ports:
+      - "9090:9090"  # Map container port 9090 to host port 9090
+
+
+  graf:
+    image: kshanmukha1501/graf:v2
+    networks:
+      my_network:
+        ipv4_address: 172.18.0.3
+    ports:
+      - "3000:3000"  # Map container port 3000 to host port 3000
+
+
+  flsk:
+    image: kshanmukha1501/flask:v5
+    networks:
+      my_network:
+        ipv4_address: 172.18.0.4
+    ports:
+      - "5000:5000"  # Map container port 5000 to host port 5000
+
+
+networks:
+  my_network:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.18.0.0/24
