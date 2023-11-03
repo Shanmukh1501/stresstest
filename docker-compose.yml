@@ -19,7 +19,7 @@ services:
 
 
   flsk:
-    image: kshanmukha1501/flask:v5
+    image: kshanmukha1501/flask:v8
     networks:
       my_network:
         ipv4_address: 172.18.0.4
