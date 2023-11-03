@@ -1,5 +1,5 @@
 # Use the specific base image
-FROM kshanmukha1501/flask:v5
+FROM kshanmukha1501/flask:v6
 
 # Set the working directory inside the container
 WORKDIR /root/flaskapp

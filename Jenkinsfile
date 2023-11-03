@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        DOCKER_IMAGE = 'kshanmukha1501/flask:v5'
+        DOCKER_IMAGE = 'kshanmukha1501/flask:v7'
         DOCKER_CREDENTIALS = 'DockerHubCredentials'
     }
 
