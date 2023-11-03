@@ -21,15 +21,17 @@ pipeline {
             }
         }
 
-        stage('Push Docker Image') {
-            steps {
-                script {
-                    docker.withRegistry('https://registry.hub.docker.com', '${DOCKER_CREDENTIALS}') {
-                        docker.image("${DOCKER_IMAGE}").push()
-                    }
-                }
-            }
-        }
+        stage('Push to DockerHub') {
+			steps {
+				withCredentials([usernamePassword(credentialsId: 'DockerHubCredentials', passwordVariable: 'DOCKER_PASSWORD', usernameVariable: 'DOCKER_USERNAME')]) {
+					script {
+						sh "echo $DOCKER_PASSWORD | docker login -u $DOCKER_USERNAME --password-stdin"
+						sh "docker push ${IMAGE_NAME}"
+					}
+				}
+			}
+		}
+
 		
         stage('Deploy with Docker Compose') {
             steps {
