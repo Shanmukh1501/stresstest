@@ -7,5 +7,4 @@ WORKDIR /root/flaskapp
 # Copy the Flask app files from your host to your current location (WORKDIR) in the image
 COPY . .
 
-# Retain the entrypoint settings as defined earlier
 ENTRYPOINT ["/bin/bash", "/run_services.sh"]
