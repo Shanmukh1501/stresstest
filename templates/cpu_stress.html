@@ -6,4 +6,7 @@
   <form action="{{ url_for('start_cpu_stress') }}" method="post">
     <button type="submit">Start CPU Stress Test</button>
   </form>
+  {% if message %}
+    <p>{{ message }}</p>
+  {% endif %}
 {% endblock %}

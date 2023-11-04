@@ -5,12 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>System Stress Test</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <style>
+        body {
+            text-align: center;
+        }
+        main {
+            margin: auto;
+            width: 60%;
+            padding: 10px;
+        }
+    </style>
 </head>
 <body>
+    <header>
+        <h1>System Stress Test with Flask</h1>
+    </header>
     <main>
         {% block content %}
         <!-- Content will go here -->
         {% endblock %}
     </main>
+    <footer>
+        <!-- Footer can be added here if needed -->
+    </footer>
 </body>
 </html>
