@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h2>Disk Write Stress Test</h2>
+  <p>Press the button below to start the Disk Write stress test.</p>
+  <form action="{{ url_for('start_disk_write_stress') }}" method="post">
+    <button type="submit">Start Disk Write Stress Test</button>
+  </form>
+  {% if message %}
+    <p>{{ message }}</p>
+  {% endif %}
+{% endblock %}

@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h2>Full System Stress Test</h2>
+  <p>Press the button below to start the full system stress test.</p>
+  <form action="{{ url_for('start_full_stress') }}" method="post">
+    <button type="submit">Start Full System Stress Test</button>
+  </form>
+  {% if message %}
+    <p>{{ message }}</p>
+  {% endif %}
+{% endblock %}

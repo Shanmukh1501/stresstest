@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h2>CPU Stress Test</h2>
+  <p>Press the button below to start the CPU stress test.</p>
+  <form action="{{ url_for('start_cpu_stress') }}" method="post">
+    <button type="submit">Start CPU Stress Test</button>
+  </form>
+{% endblock %}
