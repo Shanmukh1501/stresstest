@@ -44,3 +44,9 @@ header, footer {
 h1 {
     color: rgb(28, 25, 25);
 }
+
+li {
+    padding: 15px;
+    color:darkorange;
+    border-radius: 2px;
+}
