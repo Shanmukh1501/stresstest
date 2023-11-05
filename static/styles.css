@@ -37,7 +37,10 @@ main {
 header, footer {
     padding: 1em;
     color: white;
-    background-color: black;
     clear: left;
     text-align: center;
+}
+
+h1 {
+    color: rgb(28, 25, 25);
 }
